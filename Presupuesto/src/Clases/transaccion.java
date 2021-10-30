@@ -7,15 +7,19 @@ public class Transaccion {
     private String detalle;
     private String tipo;
     private String categoria;
+    
     private double monto;
+    private int id;
+    
     private Date fecha_Transaccion;
 
-    public Transaccion(String detalle, String tipo, String categoria, double monto, Date fecha_Transaccion) {
+    public Transaccion(String detalle, String tipo, String categoria, double monto, int id,  Date fecha_Transaccion) {
         this.detalle = detalle;
         this.tipo = tipo;
         this.categoria = categoria;
         this.monto = monto;
         this.fecha_Transaccion = fecha_Transaccion;
+        this.id = id;
     }
 
     public String getDetalle() {
@@ -57,5 +61,12 @@ public class Transaccion {
     public void setFecha_Transaccion(Date fecha_Transaccion) {
         this.fecha_Transaccion = fecha_Transaccion;
     }
-    
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }
