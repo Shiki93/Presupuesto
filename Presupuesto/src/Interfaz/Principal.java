@@ -20,7 +20,25 @@ public class Principal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btnInicio = new javax.swing.JButton();
+        btnCuentas = new javax.swing.JButton();
+        btnTransacciones = new javax.swing.JButton();
+        btnReporte = new javax.swing.JButton();
+        btnBalance = new javax.swing.JButton();
+        btnPerfil = new javax.swing.JButton();
+        btnPreferencias = new javax.swing.JButton();
+        btnCategoria = new javax.swing.JButton();
+        btnCalendario = new javax.swing.JButton();
+        btnGanancia = new javax.swing.JButton();
+        btnLogout = new javax.swing.JButton();
+        jLayeredPane1 = new javax.swing.JLayeredPane();
+        jtpCuentas = new javax.swing.JTabbedPane();
+        jPanel2 = new javax.swing.JPanel();
+        btnEliminarCuenta = new javax.swing.JButton();
+        btnEditarCuenta = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblCuentas = new javax.swing.JTable();
+        btnCuentaNueva = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -28,17 +46,166 @@ public class Principal extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 204));
-        jButton1.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Inicio");
-        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 50));
+        btnInicio.setBackground(new java.awt.Color(0, 0, 204));
+        btnInicio.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        btnInicio.setForeground(new java.awt.Color(255, 255, 255));
+        btnInicio.setText("Inicio");
+        btnInicio.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 70));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 650));
+        btnCuentas.setBackground(new java.awt.Color(0, 0, 204));
+        btnCuentas.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        btnCuentas.setForeground(new java.awt.Color(255, 255, 255));
+        btnCuentas.setText("Cuentas");
+        btnCuentas.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(btnCuentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 190, 70));
+
+        btnTransacciones.setBackground(new java.awt.Color(0, 0, 204));
+        btnTransacciones.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        btnTransacciones.setForeground(new java.awt.Color(255, 255, 255));
+        btnTransacciones.setText("Transacciones");
+        btnTransacciones.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(btnTransacciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 190, 70));
+
+        btnReporte.setBackground(new java.awt.Color(0, 0, 204));
+        btnReporte.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        btnReporte.setForeground(new java.awt.Color(255, 255, 255));
+        btnReporte.setText("Reportes");
+        btnReporte.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(btnReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 190, 70));
+
+        btnBalance.setBackground(new java.awt.Color(0, 0, 204));
+        btnBalance.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        btnBalance.setForeground(new java.awt.Color(255, 255, 255));
+        btnBalance.setText("Hoja de Balance");
+        btnBalance.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(btnBalance, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 190, 70));
+
+        btnPerfil.setBackground(new java.awt.Color(0, 0, 204));
+        btnPerfil.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        btnPerfil.setForeground(new java.awt.Color(255, 255, 255));
+        btnPerfil.setText("Perfil");
+        btnPerfil.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(btnPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 630, 190, 70));
+
+        btnPreferencias.setBackground(new java.awt.Color(0, 0, 204));
+        btnPreferencias.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        btnPreferencias.setForeground(new java.awt.Color(255, 255, 255));
+        btnPreferencias.setText("Preferencias");
+        btnPreferencias.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(btnPreferencias, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 560, 190, 70));
+
+        btnCategoria.setBackground(new java.awt.Color(0, 0, 204));
+        btnCategoria.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        btnCategoria.setForeground(new java.awt.Color(255, 255, 255));
+        btnCategoria.setText("Categorias");
+        btnCategoria.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(btnCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 490, 190, 70));
+
+        btnCalendario.setBackground(new java.awt.Color(0, 0, 204));
+        btnCalendario.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        btnCalendario.setForeground(new java.awt.Color(255, 255, 255));
+        btnCalendario.setText("Calendario");
+        btnCalendario.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(btnCalendario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 190, 70));
+
+        btnGanancia.setBackground(new java.awt.Color(0, 0, 204));
+        btnGanancia.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        btnGanancia.setForeground(new java.awt.Color(255, 255, 255));
+        btnGanancia.setText("Ganancia Neta");
+        btnGanancia.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(btnGanancia, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 190, 70));
+
+        btnLogout.setBackground(new java.awt.Color(0, 0, 204));
+        btnLogout.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogout.setText("Cerrar Sesión");
+        btnLogout.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnLogout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnLogoutMouseClicked(evt);
+            }
+        });
+        jPanel1.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 700, 190, 70));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 770));
+
+        jLayeredPane1.setForeground(new java.awt.Color(153, 0, 0));
+        jLayeredPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnEliminarCuenta.setBackground(new java.awt.Color(0, 0, 204));
+        btnEliminarCuenta.setFont(new java.awt.Font("8BIT WONDER", 3, 14)); // NOI18N
+        btnEliminarCuenta.setForeground(new java.awt.Color(255, 255, 255));
+        btnEliminarCuenta.setText("Eliminar CUenta");
+        jPanel2.add(btnEliminarCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 690, 240, 30));
+
+        btnEditarCuenta.setBackground(new java.awt.Color(0, 0, 204));
+        btnEditarCuenta.setFont(new java.awt.Font("8BIT WONDER", 3, 14)); // NOI18N
+        btnEditarCuenta.setForeground(new java.awt.Color(255, 255, 255));
+        btnEditarCuenta.setText("Editar Cuenta");
+        btnEditarCuenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarCuentaActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnEditarCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 690, 220, 30));
+
+        tblCuentas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre de Cuenta", "Balance Disponible", "Tipo de Moneda", "Select"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.Boolean.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        tblCuentas.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(tblCuentas);
+
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1230, 680));
+
+        btnCuentaNueva.setBackground(new java.awt.Color(0, 0, 204));
+        btnCuentaNueva.setFont(new java.awt.Font("8BIT WONDER", 3, 14)); // NOI18N
+        btnCuentaNueva.setForeground(new java.awt.Color(255, 255, 255));
+        btnCuentaNueva.setText("Nueva Cuenta");
+        btnCuentaNueva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCuentaNuevaActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnCuentaNueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 690, 200, 30));
+
+        jtpCuentas.addTab("Cuenta Corriente", jPanel2);
+
+        jLayeredPane1.add(jtpCuentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1230, 770));
+
+        getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 1230, 770));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseClicked
+       System.exit(0);
+    }//GEN-LAST:event_btnLogoutMouseClicked
+
+    private void btnEditarCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarCuentaActionPerformed
+        
+        
+        
+    }//GEN-LAST:event_btnEditarCuentaActionPerformed
+
+    private void btnCuentaNuevaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCuentaNuevaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCuentaNuevaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -77,7 +244,25 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnBalance;
+    private javax.swing.JButton btnCalendario;
+    private javax.swing.JButton btnCategoria;
+    private javax.swing.JButton btnCuentaNueva;
+    private javax.swing.JButton btnCuentas;
+    private javax.swing.JButton btnEditarCuenta;
+    private javax.swing.JButton btnEliminarCuenta;
+    private javax.swing.JButton btnGanancia;
+    private javax.swing.JButton btnInicio;
+    private javax.swing.JButton btnLogout;
+    private javax.swing.JButton btnPerfil;
+    private javax.swing.JButton btnPreferencias;
+    private javax.swing.JButton btnReporte;
+    private javax.swing.JButton btnTransacciones;
+    private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTabbedPane jtpCuentas;
+    private javax.swing.JTable tblCuentas;
     // End of variables declaration//GEN-END:variables
 }
