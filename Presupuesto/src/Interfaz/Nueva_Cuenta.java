@@ -1,19 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Interfaz;
 
-/**
- *
- * @author muril
- */
+import java.awt.Color;
+import java.text.NumberFormat;
+import java.util.Locale;
+import javax.swing.BorderFactory;
+import javax.swing.border.Border;
+
 public class Nueva_Cuenta extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Nueva_Cuenta
-     */
-    public Nueva_Cuenta() {
+   public Nueva_Cuenta() {
         initComponents();
     }
 
@@ -30,12 +25,16 @@ public class Nueva_Cuenta extends javax.swing.JFrame {
         lblNombreCuenta = new javax.swing.JLabel();
         txtNombreCuenta = new javax.swing.JTextField();
         lblNombreCuenta1 = new javax.swing.JLabel();
-        txtBalanceInicial = new javax.swing.JTextField();
         lblNombreCuenta2 = new javax.swing.JLabel();
         cbxTipoMoneda = new javax.swing.JComboBox<>();
         lblNombreCuenta3 = new javax.swing.JLabel();
         txtInstitucion = new javax.swing.JTextField();
         lblLogoBanco = new javax.swing.JLabel();
+        lblNombreCuenta4 = new javax.swing.JLabel();
+        txtBalance = new javax.swing.JTextField();
+        txtFecha = new javax.swing.JTextField();
+        btnCuentaNueva = new javax.swing.JButton();
+        btnDefault = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Agregar nueva cuenta corriente");
@@ -49,13 +48,11 @@ public class Nueva_Cuenta extends javax.swing.JFrame {
         lblNombreCuenta1.setFont(new java.awt.Font("8BIT WONDER", 0, 14)); // NOI18N
         lblNombreCuenta1.setText("Tipo de moneda");
 
-        txtBalanceInicial.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-
         lblNombreCuenta2.setFont(new java.awt.Font("8BIT WONDER", 0, 14)); // NOI18N
         lblNombreCuenta2.setText("Balance Disponible");
 
         cbxTipoMoneda.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        cbxTipoMoneda.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Colon Costarricense", "Dolar Estadounidense" }));
+        cbxTipoMoneda.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione una moneda", "Colon Costarricense", "Dolar Estadounidense" }));
 
         lblNombreCuenta3.setFont(new java.awt.Font("8BIT WONDER", 0, 14)); // NOI18N
         lblNombreCuenta3.setText("Institucion");
@@ -67,51 +64,103 @@ public class Nueva_Cuenta extends javax.swing.JFrame {
             }
         });
 
+        lblNombreCuenta4.setFont(new java.awt.Font("8BIT WONDER", 0, 14)); // NOI18N
+        lblNombreCuenta4.setText("Fecha de Apertura");
+
+        txtBalance.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        txtBalance.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtBalanceFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtBalanceFocusLost(evt);
+            }
+        });
+
+        txtFecha.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+
+        btnCuentaNueva.setBackground(new java.awt.Color(0, 0, 204));
+        btnCuentaNueva.setFont(new java.awt.Font("8BIT WONDER", 2, 12)); // NOI18N
+        btnCuentaNueva.setForeground(new java.awt.Color(255, 255, 255));
+        btnCuentaNueva.setText("Crear cuenta");
+
+        btnDefault.setBackground(new java.awt.Color(0, 0, 204));
+        btnDefault.setFont(new java.awt.Font("8BIT WONDER", 2, 12)); // NOI18N
+        btnDefault.setForeground(new java.awt.Color(255, 255, 255));
+        btnDefault.setText("Default");
+        btnDefault.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDefaultActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(txtInstitucion)
-                    .addComponent(lblNombreCuenta2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblNombreCuenta, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtNombreCuenta, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblNombreCuenta1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtBalanceInicial, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
-                    .addComponent(cbxTipoMoneda, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblNombreCuenta3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(lblLogoBanco, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(166, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblNombreCuenta2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtBalance, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtInstitucion)
+                                .addComponent(lblNombreCuenta, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+                                .addComponent(txtNombreCuenta, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblNombreCuenta1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cbxTipoMoneda, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblNombreCuenta3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(24, 24, 24))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblNombreCuenta4, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblLogoBanco, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnCuentaNueva, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(43, 43, 43)
+                        .addComponent(btnDefault, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(160, 160, 160))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(lblNombreCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(txtNombreCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(lblNombreCuenta2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtBalanceInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
                         .addComponent(lblNombreCuenta1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(cbxTipoMoneda, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lblLogoBanco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(cbxTipoMoneda, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblNombreCuenta2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblLogoBanco, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(lblNombreCuenta3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(txtInstitucion, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(lblNombreCuenta4, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtFecha, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                    .addComponent(btnCuentaNueva, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnDefault, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1190, 620));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 640));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -142,6 +191,49 @@ public class Nueva_Cuenta extends javax.swing.JFrame {
             lblLogoBanco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Davivienda-Logo.png")));
         }
     }//GEN-LAST:event_txtInstitucionFocusLost
+
+    private void txtBalanceFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtBalanceFocusLost
+        NumberFormat formatter;
+        String moneyString;
+        if(!this.txtBalance.getText().equals("")){
+            double dinero = Double.parseDouble(this.txtBalance.getText());
+            switch(this.cbxTipoMoneda.getSelectedItem().toString()){
+                case "Colon Costarricense":
+                    formatter = NumberFormat.getCurrencyInstance();
+                    moneyString = formatter.format(dinero);
+                    this.txtBalance.setText(moneyString);
+                    break;
+                case "Dolar Estadounidense":
+                    formatter = NumberFormat.getCurrencyInstance(Locale.US);
+                    moneyString = formatter.format(dinero);
+                    this.txtBalance.setText(moneyString);
+                    break;
+                default:
+                    this.txtBalance.setText("");
+                    break;
+            }
+        }
+        else{
+            this.txtBalance.setText("");
+            Border border = BorderFactory.createLineBorder(Color.RED, 2);
+            this.txtBalance.setBorder(border);
+        }
+    }//GEN-LAST:event_txtBalanceFocusLost
+
+    private void txtBalanceFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtBalanceFocusGained
+        this.txtBalance.setText("");
+        Border border = BorderFactory.createLineBorder(Color.BLACK, 0);
+        this.txtBalance.setBorder(border);
+    }//GEN-LAST:event_txtBalanceFocusGained
+
+    private void btnDefaultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDefaultActionPerformed
+        this.txtBalance.setText("");
+        this.txtFecha.setText("--/--/--");
+        this.txtInstitucion.setText("");
+        this.txtNombreCuenta.setText("");
+        this.cbxTipoMoneda.setSelectedItem("Seleccione una moneda");
+        this.lblLogoBanco.setIcon(null);
+    }//GEN-LAST:event_btnDefaultActionPerformed
 
     /**
      * @param args the command line arguments
@@ -179,6 +271,8 @@ public class Nueva_Cuenta extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCuentaNueva;
+    private javax.swing.JButton btnDefault;
     private javax.swing.JComboBox<String> cbxTipoMoneda;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblLogoBanco;
@@ -186,7 +280,9 @@ public class Nueva_Cuenta extends javax.swing.JFrame {
     private javax.swing.JLabel lblNombreCuenta1;
     private javax.swing.JLabel lblNombreCuenta2;
     private javax.swing.JLabel lblNombreCuenta3;
-    private javax.swing.JTextField txtBalanceInicial;
+    private javax.swing.JLabel lblNombreCuenta4;
+    private javax.swing.JTextField txtBalance;
+    private javax.swing.JTextField txtFecha;
     private javax.swing.JTextField txtInstitucion;
     private javax.swing.JTextField txtNombreCuenta;
     // End of variables declaration//GEN-END:variables
