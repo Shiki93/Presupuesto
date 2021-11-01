@@ -11,11 +11,11 @@ public class Cuenta_Corriente {
     
     private double saldo_Disponible;
     
-    private Date fecha_Apertura;
+    private String fecha_Apertura;
     
     private ArrayList<Transaccion> lista_Transacciones;
 
-    public Cuenta_Corriente(String nombre, String institucion, String tipo_Moneda, double saldo_Disponible, Date fecha_Apertura) {
+    public Cuenta_Corriente(String nombre, String institucion, String tipo_Moneda, double saldo_Disponible, String fecha_Apertura) {
         this.nombre = nombre;
         this.institucion = institucion;
         this.tipo_Moneda = tipo_Moneda;
@@ -70,11 +70,11 @@ public class Cuenta_Corriente {
         this.saldo_Disponible = saldo_Disponible;
     }
 
-    public Date getFecha_Apertura() {
+    public String getFecha_Apertura() {
         return fecha_Apertura;
     }
 
-    public void setFecha_Apertura(Date fecha_Apertura) {
+    public void setFecha_Apertura(String fecha_Apertura) {
         this.fecha_Apertura = fecha_Apertura;
     }
 

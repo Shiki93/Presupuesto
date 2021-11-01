@@ -1,5 +1,7 @@
 package Interfaz;
 
+import Interfaz.Nueva_Cuenta;
+
 public class Principal extends javax.swing.JFrame {
 
     /**
@@ -204,7 +206,10 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEditarCuentaActionPerformed
 
     private void btnCuentaNuevaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCuentaNuevaActionPerformed
-        // TODO add your handling code here:
+        Nueva_Cuenta nuevaCuenta = new Nueva_Cuenta();
+        nuevaCuenta.setVisible(true);
+        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_btnCuentaNuevaActionPerformed
 
     /**
