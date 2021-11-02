@@ -11,15 +11,18 @@ public class Transaccion {
     private double monto;
     private int id;
     
-    private Date fecha_Transaccion;
+    private String fecha_Transaccion;
 
-    public Transaccion(String detalle, String tipo, String categoria, double monto, int id,  Date fecha_Transaccion) {
+    public Transaccion(String detalle, String tipo, String categoria, double monto, int id,  String fecha_Transaccion) {
         this.detalle = detalle;
         this.tipo = tipo;
         this.categoria = categoria;
         this.monto = monto;
         this.fecha_Transaccion = fecha_Transaccion;
         this.id = id;
+    }
+
+    public Transaccion() {
     }
 
     public String getDetalle() {
@@ -54,11 +57,11 @@ public class Transaccion {
         this.monto = monto;
     }
 
-    public Date getFecha_Transaccion() {
+    public String getFecha_Transaccion() {
         return fecha_Transaccion;
     }
 
-    public void setFecha_Transaccion(Date fecha_Transaccion) {
+    public void setFecha_Transaccion(String fecha_Transaccion) {
         this.fecha_Transaccion = fecha_Transaccion;
     }
 

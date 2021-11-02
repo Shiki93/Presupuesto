@@ -1,6 +1,5 @@
 package Clases;
 
-import java.util.Date;
 import java.util.ArrayList;
 
 public class Cuenta_Corriente {
@@ -24,18 +23,7 @@ public class Cuenta_Corriente {
         this.lista_Transacciones = new ArrayList<Transaccion>();
     }
 
-    public void add_Transaccion(Transaccion transaccion){
-        this.lista_Transacciones.add(transaccion);
-    }
-    
-    public boolean delete_Transaccion(int id){
-        for (int i = 0; i < lista_Transacciones.size(); i++){
-            if (lista_Transacciones.get(i).getId() == id){
-                lista_Transacciones.remove(i);
-                return true;
-            }
-        }
-        return false;
+    public Cuenta_Corriente() {
     }
 
     public String getNombre() {
