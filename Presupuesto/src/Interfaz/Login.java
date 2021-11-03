@@ -1,13 +1,35 @@
 package Interfaz;
 
-import java.util.Arrays;
+import Clases.LoginDao;
+import Clases.LoginLogic;
 import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
 
+    LoginLogic lg = new LoginLogic();
+    LoginDao dao = new LoginDao();
+    
     public Login() {
         initComponents();
         this.setLocationRelativeTo(null);
+    }
+    
+    public void validar(){
+        String correo = this.txtCorreo.getText();
+        String pass = String.valueOf(this.txtPass.getPassword());
+        if(!"".equals(correo) || !"".equals(pass)){
+            lg = dao.log(correo, pass);
+            if(lg.getCorreo() != null && lg.getPass() != null){
+                JOptionPane.showMessageDialog(this, "Bienvenido");
+                this.setVisible(false);
+                Principal principal = new Principal();
+                principal.setVisible(true);
+                this.dispose();
+            }
+            else{
+                this.lblError.setText("Error en los datos de acceso");
+            }
+        }
     }
 
     /**
@@ -122,18 +144,8 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        String correo = this.txtCorreo.getText();
-        String pass = this.txtPass.getText();
-        if(correo.equals("murillo.tec@gmail.com") && pass.equals("123456")){
-            JOptionPane.showMessageDialog(this, "Bienvenido");
-            this.setVisible(false);
-            Principal principal = new Principal();
-            principal.setVisible(true);
-            this.dispose();
-        }
-        else{
-            this.lblError.setText("Error en los datos de acceso");
-        }
+        this.lblError.setText("");
+        validar();
     }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
@@ -153,14 +165,15 @@ public class Login extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginLogic.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginLogic.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginLogic.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginLogic.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
